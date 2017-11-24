@@ -1,0 +1,16 @@
+ls /dev/ttyUSB*
+
+sudo -i
+
+wget -O - http://apt.pm-codeworks.de/pm-codeworks.de.gpg | apt-key add -
+
+wget http://apt.pm-codeworks.de/pm-codeworks.list -P /etc/apt/sources.list.d/
+
+apt-get update
+
+apt-get install python-fingerprint --yes
+
+apt-get -f install
+
+#You can finde examples in 
+cd /usr/share/doc/python-fingerprint/examples/

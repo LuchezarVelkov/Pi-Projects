@@ -1,0 +1,19 @@
+1- Delete /pi/Adafruit_Python_DHT/    folder
+2- git clone https://github.com/adafruit/Adafruit_Python_DHT.git
+3- cd Adafruit_Python_DHT
+
+4- Open in editor /pi/Adafruit_Python_DHT/source/Raspberry_Pi_2/pi_2_dht_read.c  file and change   
+FROM:
+  pi_2_mmio_set_input(pin);
+  // Need a very short delay before reading pins or else value is sometimes still low.
+  for (volatile int i = 0; i < 50; ++i) {
+  } 
+TO: 
+    pi_2_mmio_set_input(pin);
+  // Need a very short delay before reading pins or else value is sometimes still low.
+  for (volatile int i = 0; i < 900; ++i) {
+  } 
+5- sudo apt-get install build-essential python-dev
+
+6- sudo python setup.py install
+

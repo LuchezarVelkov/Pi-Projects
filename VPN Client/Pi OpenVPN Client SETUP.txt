@@ -1,0 +1,79 @@
+sudo apt-get install openvpn
+
+Copy all certificates in /etc/openvpn
+
+sudo nano /etc/openvpn/client.conf
+Paste this in the created file client.conf
+
+______________________________________________________
+THIS IS FOR PI ZERO WORCKING
+client
+dev tun
+port 1194
+proto udp
+float
+nobind
+ca /etc/openvpn/ca.crt
+cert /etc/openvpn/raspberry_p_zero.crt
+key /etc/openvpn/raspberry_p_zero.key
+comp-lzo
+persist-key
+persist-tun
+verb 3
+resolv-retry infinite
+keepalive 30 60
+______________________________________________________
+THIS IS STOCK
+client
+dev tun
+port 1194
+proto udp
+remote YourAddres.com
+nobind
+ca /etc/openvpn/ca.crt
+cert /etc/openvpn/raspberry_p_3.crt
+key /etc/openvpn/raspberry_p_3.key
+comp-lzo
+persist-key
+persist-tun
+verb 3
+resolv-retry infinite
+keepalive 30 120
+float
+ping-timer-rem                   ?????????
+______________________________________________________
+
+sudo chmod 777 /etc/openvpn/ca.crt
+sudo chmod 777 /etc/openvpn/raspberry_p_3.crt
+sudo chmod 777 /etc/openvpn/raspberry_p_3.key
+sudo chmod 777 /etc/openvpn/client.conf
+
+sudo /etc/init.d/openvpn start
+sudo /etc/init.d/openvpn stop
+sudo /etc/init.d/openvpn restart
+
+tail -f /var/log/daemon.log 
+_________________________________________________
+sudo adduser openhab root
+sudo -i
+visudo
+(add this in file)
+openhab ALL=(ALL) NOPASSWD:ALL
+________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

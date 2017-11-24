@@ -1,0 +1,17 @@
+-------------Seconds
+| -----------Minutes
+| | ---------Hours
+| | | -------Day-of-Month
+| | | | -----Month
+| | | | | ---Day-of-Week
+| | | | | | -Year (optional field)
+* * * * * * *
+
+
+http://www.cronmaker.com/
+
+Time cron "0 57 23 ? * *"           Every day at 23:57
+Time cron "0 0/1 * 1/1 * ? *"       Every minut, Every day
+Time cron "0 */1 * * * ?"           Every minut, Every day
+Time cron "0 10 7 ? * MON,THU *"    Monday and Thursday at 7:10 am 
+Time cron "0 30 7 ? * MON,TUE,WED,THU,FRI,SAT,SUN *" Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday
